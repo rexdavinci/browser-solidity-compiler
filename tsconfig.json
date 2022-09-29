@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
+    "outDir": "dist",
     "module": "esnext",
     "target": "ES5",
     "lib": ["dom", "esnext"],
@@ -12,8 +12,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "sourceMap": true
   },
-  "include": ["src", "types"]
+  "include": ["./src/**/*"]
 }

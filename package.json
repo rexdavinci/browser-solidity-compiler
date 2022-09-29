@@ -1,6 +1,6 @@
 {
   "name": "browser-solidity-compiler",
-  "version": "1.0.0-alpha",
+  "version": "0.0.1",
   "description": "Solidity compiler that works in the browser",
   "homepage": "https://github.com/rexdavinci/browser-solidity-compiler",
   "keywords": [
