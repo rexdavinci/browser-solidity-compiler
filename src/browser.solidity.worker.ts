@@ -24,7 +24,7 @@ function browserSolidityCompiler() {
   });
 }
 
-function importScripts(arg0: string) {
+function importScripts(_arg0: string) {
   throw new Error('Function not implemented.');
 }
 
