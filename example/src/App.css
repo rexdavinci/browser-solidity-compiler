@@ -1,0 +1,223 @@
+main {
+  width: 80%;
+  margin: auto;
+  padding-top: 4rem;
+}
+.app {
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea {
+  resize: none;
+  height: 35rem;
+  width: 30rem;
+  display: block;
+  border-radius: 5px;
+  padding: 1rem;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.settings {
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* container start */
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #6d9dc5;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* container  end */
+
+input[type="number"] {
+  width: 10rem;
+  border: 1px solid #6d9dc5;
+  border-radius: 3px;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+button {
+  display: block;
+  margin: auto;
+  background-color: #6d9dc6;
+  color: #fff;
+  border-radius: 3px;
+  padding: 2rem, 1rem;
+  border: none;
+  width: 8rem;
+  height: 3rem;
+  font-weight: 500;
+  font-size: larger;
+  margin-top: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #53599a;
+}
+
+.compiled {
+  display: relative;
+  height: 30rem;
+  width: 25rem;
+}
+
+.compiled em  {
+  color: #53599a;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  position: absolute;
+  margin-bottom: 8px;
+}
+
+.contracts, .errors {
+  border: 1px solid #6d9dc6;
+  height: 55%;
+  overflow: auto;
+  border-radius: 3px;
+  margin-bottom: 1.3rem;
+  padding: 6px;
+}
+
+.contracts p, .errors p {
+  margin-top: 20px;
+}
+
+.optimizer-setting em {
+  text-decoration: underline;
+}
+
+li {
+  font-size: 13px;
+  margin: 25px 0px;
+}
+
+
+select {
+  width: 5rem;
+  font-size: 15px;
+  width: 10rem;
+  padding: 1rem;
+  border-radius: 20px;
+}
+
+select:focus {
+  outline: none;
+}
+
+.deployment {
+  margin: auto;
+  text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+
+  textarea {
+    width: 100%;
+    font-size: 15px;
+    height: 20rem;
+  }
+
+  .contracts, .errors {
+
+    width: 80%;
+    margin-top: 10px;
+
+  }
+
+  .app {
+    display: block;
+  }
+
+
+  .settings {
+    margin-top: 10rem;
+    display: block;
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  .container {
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  
+}
