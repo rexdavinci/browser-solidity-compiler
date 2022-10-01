@@ -49,6 +49,8 @@ options.optimizer = {
 }
 ```
 
+[example](https://github.com/rexdavinci/browser-solidity-compiler/tree/example)
+
 
 
 
