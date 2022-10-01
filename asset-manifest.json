@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/rexdavinci.github.io/browser-solidity-compiler/static/css/main.1f998749.css",
+    "main.js": "/rexdavinci.github.io/browser-solidity-compiler/static/js/main.4af65998.js",
+    "static/js/787.759e47f1.chunk.js": "/rexdavinci.github.io/browser-solidity-compiler/static/js/787.759e47f1.chunk.js",
+    "index.html": "/rexdavinci.github.io/browser-solidity-compiler/index.html",
+    "main.1f998749.css.map": "/rexdavinci.github.io/browser-solidity-compiler/static/css/main.1f998749.css.map",
+    "main.4af65998.js.map": "/rexdavinci.github.io/browser-solidity-compiler/static/js/main.4af65998.js.map",
+    "787.759e47f1.chunk.js.map": "/rexdavinci.github.io/browser-solidity-compiler/static/js/787.759e47f1.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f998749.css",
+    "static/js/main.4af65998.js"
+  ]
+}
