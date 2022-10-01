@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   getCompilerVersions,
   solidityCompiler,
-} from 'browser-solidity-compiler';
+} from '@agnostico/browser-solidity-compiler';
 import './App.css';
 
 type BuildType = { version: string; path: string };
@@ -60,7 +60,7 @@ function App() {
 
     if (optimizeOption.optimize) {
       options.optimizer = {
-        optimizer: optimizeOption.optimize,
+        enabled: optimizeOption.optimize,
         runs: optimizeOption.runs,
       };
     }
