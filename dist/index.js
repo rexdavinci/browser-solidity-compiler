@@ -38,11 +38,11 @@ import { browserSolidityCompiler } from './browser.solidity.worker';
 import { createCompileInput } from './helpers';
 var worker = new Worker(URL.createObjectURL(new Blob(["(".concat(browserSolidityCompiler, ")()")], { type: 'module' })));
 export var solidityCompiler = function (_a) {
-    var version = _a.version, contractBody = _a.contractBody;
+    var version = _a.version, contractBody = _a.contractBody, options = _a.options;
     return __awaiter(void 0, void 0, void 0, function () {
         var input;
         return __generator(this, function (_b) {
-            input = createCompileInput(contractBody);
+            input = createCompileInput(contractBody, options);
             return [2 /*return*/, new Promise(function (resolve, reject) {
                     worker.postMessage({ input: input, version: version });
                     worker.onmessage = function (_a) {
