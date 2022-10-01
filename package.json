@@ -1,47 +1,51 @@
 {
-  "name": "@agnostico/browser-solidity-compiler",
+  "homepage": "https://github.com/rexdavinci.github.io/browser-solidity-compiler",
+  "description": "An example reactJS app using @agnostico/browser-compiler",
+  "name": "example",
   "version": "0.1.0",
-  "description": "Solidity compiler that works in the browser",
-  "homepage": "https://agnostico.xyz",
-  "keywords": [
-    "solidity",
-    "browser",
-    "typescript",
-    "javascript",
-    "react"
-  ],
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "prettier": {
-    "printWidth": 80,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "es5"
+  "private": true,
+  "dependencies": {
+    "@agnostico/browser-solidity-compiler": "^0.1.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.11.62",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.8.4",
+    "web-vitals": "^2.1.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/rexdavinci/browser-solidity-compiler.git"
-  },
-  "bugs": {
-    "url": "https://github.com/rexdavinci/browser-solidity-compiler/issues"
-  },
-  "main": "dist/index.js",
   "scripts": {
-    "test": "jest --verbose",
-    "test:cover": "jest --coverage",
-    "lint": "eslint .",
-    "build": "tsc"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "author": "Abdulhafiz Ahmed <abdulhafiz@agnostico.xyz> (http://t.me/rexdavinci)",
-  "license": "ISC",
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
-    "@types/jest": "^29.0.3",
-    "@typescript-eslint/eslint-plugin": "^5.38.1",
-    "@typescript-eslint/parser": "^5.38.1",
-    "eslint": "^8.24.0",
-    "typescript": "^4.8.4"
+    "gh-pages": "^4.0.0"
   }
 }
