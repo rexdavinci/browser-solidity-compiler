@@ -1,8 +1,8 @@
 {
-  "name": "browser-solidity-compiler",
+  "name": "@agnostico/solidity-compiler",
   "version": "0.0.1",
   "description": "Solidity compiler that works in the browser",
-  "homepage": "https://github.com/rexdavinci/browser-solidity-compiler",
+  "homepage": "https://agnostico.xyz",
   "keywords": [
     "solidity",
     "browser",

@@ -3,8 +3,8 @@ import { createCompileInput } from './helpers'
 
 const worker = new Worker(URL.createObjectURL(new Blob([`(${browserSolidityCompiler})()`], { type: 'module' })));
 
-export const solidityCompiler = async ({ version, contractBody }: { version: string; contractBody: string }) => {
-  const input = createCompileInput(contractBody)
+export const solidityCompiler = async ({ version, contractBody, options }: { version: string; contractBody: string; options?: { optimizer?: { enabled: boolean; runs: number } } }) => {
+  const input = createCompileInput(contractBody, options)
   return new Promise((resolve, reject) => {
     worker.postMessage({ input, version })
     worker.onmessage = function ({ data }) {
