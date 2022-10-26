@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,15 +35,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import { browserSolidityCompiler } from './browser.solidity.worker';
-import { createCompileInput } from './helpers';
-var worker = new Worker(URL.createObjectURL(new Blob(["(".concat(browserSolidityCompiler, ")()")], { type: 'module' })));
-export var solidityCompiler = function (_a) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCompilerVersions = exports.solidityCompiler = void 0;
+var browser_solidity_worker_1 = require("./browser.solidity.worker");
+var helpers_1 = require("./helpers");
+var worker = new Worker(URL.createObjectURL(new Blob(["(".concat(browser_solidity_worker_1.browserSolidityCompiler, ")()")], { type: 'module' })));
+var solidityCompiler = function (_a) {
     var version = _a.version, contractBody = _a.contractBody, options = _a.options;
     return __awaiter(void 0, void 0, void 0, function () {
         var input;
         return __generator(this, function (_b) {
-            input = createCompileInput(contractBody, options);
+            input = (0, helpers_1.createCompileInput)(contractBody, options);
             return [2 /*return*/, new Promise(function (resolve, reject) {
                     worker.postMessage({ input: input, version: version });
                     worker.onmessage = function (_a) {
@@ -54,7 +57,8 @@ export var solidityCompiler = function (_a) {
         });
     });
 };
-export var getCompilerVersions = function () { return __awaiter(void 0, void 0, void 0, function () {
+exports.solidityCompiler = solidityCompiler;
+var getCompilerVersions = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         return [2 /*return*/, new Promise(function (resolve, reject) {
                 worker.postMessage('fetch-compiler-versions');
@@ -66,4 +70,5 @@ export var getCompilerVersions = function () { return __awaiter(void 0, void 0, 
             })];
     });
 }); };
+exports.getCompilerVersions = getCompilerVersions;
 //# sourceMappingURL=index.js.map

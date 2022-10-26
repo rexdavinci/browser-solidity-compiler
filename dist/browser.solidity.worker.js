@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.browserSolidityCompiler = void 0;
 function browserSolidityCompiler() {
     var ctx = self;
     ctx.addEventListener('message', function (_a) {
@@ -18,11 +21,11 @@ function browserSolidityCompiler() {
         }
     });
 }
+exports.browserSolidityCompiler = browserSolidityCompiler;
 function importScripts(_arg0) {
     throw new Error('Function not implemented.');
 }
 if (window !== self) {
     browserSolidityCompiler();
 }
-export { browserSolidityCompiler };
 //# sourceMappingURL=browser.solidity.worker.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -9,7 +10,9 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-export var createCompileInput = function (contractBody, options) {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createCompileInput = void 0;
+var createCompileInput = function (contractBody, options) {
     if (options === void 0) { options = {}; }
     var CompileInput = {
         language: 'Solidity',
@@ -26,4 +29,5 @@ export var createCompileInput = function (contractBody, options) {
     };
     return JSON.stringify(CompileInput);
 };
+exports.createCompileInput = createCompileInput;
 //# sourceMappingURL=helpers.js.map

@@ -1,6 +1,6 @@
 {
   "name": "@agnostico/browser-solidity-compiler",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Solidity compiler that works in the browser",
   "homepage": "https://agnostico.xyz",
   "keywords": [
@@ -8,7 +8,10 @@
     "browser",
     "typescript",
     "javascript",
-    "react"
+    "react",
+    "vuejs",
+    "angular",
+    "nodejs"
   ],
   "typings": "dist/index.d.ts",
   "files": [
