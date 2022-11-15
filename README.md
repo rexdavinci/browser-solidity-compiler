@@ -3,17 +3,17 @@ Inspired by https://github.com/ethereum/solc-js, This browser solidity compiler 
 
 ### Installation
 ```
-npm i @agnostico/solidity-compiler
+npm i @agnostico/browser-solidity-compiler
 ```
 
 or with yarn
 ```
-yarn add @agnostico/solidity-compiler
+yarn add @agnostico/browser-solidity-compiler
 ```
 
 ### Then import your application
 ```
-import { solidityCompiler, getCompilerVersions } from "@agnostico/solidity-compiler";
+import { solidityCompiler, getCompilerVersions } from "@agnostico/browser-solidity-compiler";
 ```
 ##### To load available solidity versions from https://binaries.soliditylang.org/bin/list.json
 
