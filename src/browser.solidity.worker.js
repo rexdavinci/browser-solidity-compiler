@@ -22,7 +22,7 @@
             postMessage({ id, error: error.message });
           });
       } else {
-        importScripts(version);
+        ctx.importScripts(version);
         const soljson = ctx.Module;
         if ('_solidity_compile' in soljson) {
           const compile = soljson.cwrap('solidity_compile', 'string', ['string', 'number']);
