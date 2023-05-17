@@ -1,4 +1,4 @@
-export const createCompileInput = (contractBody, options) => {
+export const createCompileInput = (contractBody: string, options: any = {}): string => {
   const CompileInput = {
     language: 'Solidity',
     sources: {
