@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -39,34 +39,63 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCompilerVersions = exports.solidityCompiler = void 0;
 var browser_solidity_worker_1 = require("./browser.solidity.worker");
 var helpers_1 = require("./helpers");
-var worker = new Worker(URL.createObjectURL(new Blob(["(".concat(browser_solidity_worker_1.browserSolidityCompiler, ")()")], { type: 'module' })));
-var solidityCompiler = function (_a) {
-    var version = _a.version, contractBody = _a.contractBody, options = _a.options;
-    return __awaiter(void 0, void 0, void 0, function () {
-        var input;
-        return __generator(this, function (_b) {
-            input = (0, helpers_1.createCompileInput)(contractBody, options);
-            return [2 /*return*/, new Promise(function (resolve, reject) {
-                    worker.postMessage({ input: input, version: version });
-                    worker.onmessage = function (_a) {
-                        var data = _a.data;
-                        resolve(data);
-                    };
-                    worker.onerror = reject;
-                })];
-        });
+var currentId = 0;
+var solidityCompiler = function (_a) { return __awaiter(void 0, [_a], void 0, function (_b) {
+    var worker, input, id;
+    var version = _b.version, contractBody = _b.contractBody, options = _b.options;
+    return __generator(this, function (_c) {
+        worker = new Worker(URL.createObjectURL(new Blob(["(".concat(browser_solidity_worker_1.browserSolidityCompiler, ")()")], { type: 'module' })));
+        input = (0, helpers_1.createCompileInput)(contractBody, options);
+        id = currentId++;
+        return [2 /*return*/, new Promise(function (resolve, reject) {
+                var handleMessage = function (_a) {
+                    var data = _a.data;
+                    var responseId = data.id, result = data.result;
+                    if (responseId === id) {
+                        worker.removeEventListener('message', handleMessage);
+                        worker.removeEventListener('error', handleError);
+                        worker.terminate();
+                        resolve(result);
+                    }
+                };
+                var handleError = function (err) {
+                    worker.removeEventListener('message', handleMessage);
+                    worker.removeEventListener('error', handleError);
+                    worker.terminate();
+                    reject(err);
+                };
+                worker.addEventListener('message', handleMessage);
+                worker.addEventListener('error', handleError);
+                worker.postMessage({ id: id, input: input, version: version });
+            })];
     });
-};
+}); };
 exports.solidityCompiler = solidityCompiler;
 var getCompilerVersions = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var worker, id;
     return __generator(this, function (_a) {
+        worker = new Worker(URL.createObjectURL(new Blob(["(".concat(browser_solidity_worker_1.browserSolidityCompiler, ")()")], { type: 'module' })));
+        id = currentId++;
         return [2 /*return*/, new Promise(function (resolve, reject) {
-                worker.postMessage('fetch-compiler-versions');
-                worker.onmessage = function (_a) {
+                var handleMessage = function (_a) {
                     var data = _a.data;
-                    resolve(data);
+                    var responseId = data.id, result = data.result;
+                    if (responseId === id) {
+                        worker.removeEventListener('message', handleMessage);
+                        worker.removeEventListener('error', handleError);
+                        worker.terminate();
+                        resolve(result);
+                    }
                 };
-                worker.onerror = reject;
+                var handleError = function (err) {
+                    worker.removeEventListener('message', handleMessage);
+                    worker.removeEventListener('error', handleError);
+                    worker.terminate();
+                    reject(err);
+                };
+                worker.addEventListener('message', handleMessage);
+                worker.addEventListener('error', handleError);
+                worker.postMessage({ id: id, input: 'fetch-compiler-versions' });
             })];
     });
 }); };
