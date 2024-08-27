@@ -3,7 +3,11 @@
     "outDir": "dist",
     "module": "CommonJS",
     "target": "ES5",
-    "lib": ["dom", "esnext"],
+    "lib": [
+      "dom",
+      "esnext",
+      "WebWorker"
+    ],
     "declaration": true,
     "strict": true,
     "noImplicitReturns": true,
@@ -14,5 +18,7 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true
   },
-  "include": ["./src/**/*"]
+  "include": [
+    "./src/**/*"
+  ]
 }
